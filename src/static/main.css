@@ -44,7 +44,12 @@ body {
     background-color: var(--std-color-bg-a);
 }
 
-.no-bkg-standard-content, .standard-content, nav, main, footer {
+.no-bkg-standard-content, .standard-content, main {
+    padding: 1rem 1rem 1rem 1rem; /* top right bottom left */
+    margin: auto;
+}
+
+nav, footer {
     padding: 0.5rem 1rem 0.5rem 1rem; /* top right bottom left */
     margin: auto;
 }
@@ -61,8 +66,20 @@ body {
 
 .no-padding-content, .no-bkg-standard-content, .standard-content, nav, main, footer {
     border-color: var(--std-color-bg-b);
+    box-sizing: border-box;
     border-style: none none solid none;
     border-width: 1px;
+}
+.two-column {
+    display: inline-block;
+    padding: 1rem 1rem 1rem 1rem;
+}
+.left-align, .right-align {
+    border-color: var(--std-color-bg-b);
+    box-sizing: border-box;
+    border-style: none none none none;
+    border-width: 1px;
+    
 }
 @media all and (min-width: 240mm) {
     .no-padding-content, .no-bkg-standard-content, .standard-content, main, footer {
@@ -74,6 +91,28 @@ body {
         width: 200mm;
         border-style: solid solid solid solid;
     }
+    footer {
+        margin-bottom: 10mm;
+    }
+}
+
+@media all and (min-width: 140mm) {
+    .two-column {
+        padding: 0 0 0 0; /* handled by inner containers in large view */
+        display: inline-flex;
+    }
+    .left-align {
+        width: 50%;
+        padding: 1rem 1rem 1rem 1rem; /* top right bottom left */
+        border-style: none solid none none;
+        margin-right: -0.5px;
+    }
+    .right-align {
+        width: 50%;
+        padding: 1rem 1rem 1rem 1rem; /* top right bottom left */
+        border-style: none none none solid;
+        margin-left: -0.5px;
+    }  
 }
 
 .pixelart {
@@ -81,9 +120,9 @@ body {
 }
 
 
-/*main > h1:first-child, main > h2:first-child, main > h3:first-child, div > h1:first-child, div > h2:first-child, div > h3:first-child {
-    margin-top: -0.05em;
-}*/
+main > h1:first-child, main > h2:first-child, main > h3:first-child, div > h1:first-child, div > h2:first-child, div > h3:first-child {
+    margin-top: -0.1em;
+}
 h1, h2, h3 {
     font-weight: bold;
     font-family: "LT Superior";
@@ -107,13 +146,14 @@ p > img {
     max-width: 100%;
 }
 
-.markdown-section > p {
-    margin-bottom: 0.5em;
-}
-
-p, a, span, ul, dl {
+a, span, ul, dl {
     color: inherit;
     margin: 0;
+}
+
+p {
+    color: inherit;
+    margin: 0.4em 0 0 0;
 }
 
 ul, ol {
@@ -144,11 +184,6 @@ nav, footer {
 
 a {
     cursor: pointer;
-}
-
-.markdown-container > * > img {
-    width: 100mm;
-    max-width: 100%;
 }
 
 .imglink {

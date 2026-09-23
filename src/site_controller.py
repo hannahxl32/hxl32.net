@@ -45,7 +45,7 @@ def markdown_page(path):
     md_css_string = "<style>" + css_string + "</style>"
     md_template_string = md_template_string.replace("<div class=\"codehilite\">", "<div class=\"codehilite container p-2 my-3 border rounded\">")
     md_template_string = md_template_string.replace("<pre>", "<pre style=\"margin:0;\">")
-    md_template = md_css_string + md_template_string
+    md_template = md_template_string + "\n" + md_css_string
 
     return render_template("content_page.jinja.html", markdown=md_template)
 
