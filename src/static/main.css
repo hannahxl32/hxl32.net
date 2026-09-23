@@ -45,7 +45,7 @@ body {
 }
 
 .no-bkg-standard-content, .standard-content, nav, main, footer {
-    padding: 0.75rem 1rem 0.5rem 1rem; /* top right bottom left */
+    padding: 0.5rem 1rem 0.5rem 1rem; /* top right bottom left */
     margin: auto;
 }
 
@@ -80,6 +80,10 @@ body {
     image-rendering: pixelated;
 }
 
+
+/*main > h1:first-child, main > h2:first-child, main > h3:first-child, div > h1:first-child, div > h2:first-child, div > h3:first-child {
+    margin-top: -0.05em;
+}*/
 h1, h2, h3 {
     font-weight: bold;
     font-family: "LT Superior";
@@ -98,6 +102,14 @@ h3 {
     font-size: 1.25rem;
 }
 
+/* defaults for markdown pages */
+p > img {
+    max-width: 100%;
+}
+
+.markdown-section > p {
+    margin-bottom: 0.5em;
+}
 
 p, a, span, ul, dl {
     color: inherit;

@@ -13,6 +13,8 @@ def not_found_error_handler(e):
     return render_template("404.jinja.html")
 
 @app.route("/")
+@app.route("/index")
+@app.route("/index.html")
 def home_screen():
     return render_template("index.jinja.html")
 

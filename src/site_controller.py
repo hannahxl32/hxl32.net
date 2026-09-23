@@ -3,6 +3,7 @@ from flask import Blueprint, request, render_template, Response, make_response, 
 import markdown
 import os
 from pygments.formatters import HtmlFormatter
+from utils import to_snake_case
 
 site_pages = Blueprint("site_pages", __name__)
 
@@ -16,20 +17,20 @@ def markdown_page(path):
 
     raw_markdown = None
 
-    blog_path = "blog" + sanit_path
-    blog_path = blog_path.replace("_", "-")
+    content_path = "content" + sanit_path
+    content_path = content_path.replace("_", "-")
 
-    #print(blog_path)
+    print("Accessing " + content_path)
 
-    if os.path.isfile(blog_path + ".md"):
-        with open(blog_path + ".md") as f:
+    if os.path.isfile(content_path + ".md"):
+        with open(content_path + ".md") as f:
             raw_markdown = f.read()
-    elif os.path.isfile(blog_path + "/index.md"):
-        with open(blog_path + "/index.md") as f:
+    elif os.path.isfile(content_path + "/index.md"):
+        with open(content_path + "/index.md") as f:
             raw_markdown = f.read()
 
     if raw_markdown is None:
-        return render_template("404.html")
+        return render_template("404.jinja.html")
 
     md_template_string = markdown.markdown(
         raw_markdown, extensions=[
@@ -46,11 +47,11 @@ def markdown_page(path):
     md_template_string = md_template_string.replace("<pre>", "<pre style=\"margin:0;\">")
     md_template = md_css_string + md_template_string
 
-    return render_template("blog_page.html", markdown=md_template)
+    return render_template("content_page.jinja.html", markdown=md_template)
 
-@site_pages.route("/blog", defaults={'path': 'index'}, methods=['GET'])
-@site_pages.route("/blog/", defaults={'path': 'index'}, methods=['GET'])
-@site_pages.route("/blog/<path:path>", methods=['GET'])
-def blogs_index(path):
+#@site_pages.route("/content", defaults={'path': 'index'}, methods=['GET'])
+#@site_pages.route("/content/", defaults={'path': 'index'}, methods=['GET'])
+@site_pages.route("/<path:path>", methods=['GET'])
+def main_content_route(path):
     return markdown_page(path)
 
