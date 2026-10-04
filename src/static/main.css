@@ -59,7 +59,7 @@ nav, footer {
     margin: auto;
 }
     
-.standard-content, .no-padding-content, nav, main, footer {
+.standard-content, .no-padding-content, main, {
     background-color: var(--std-color-bg-a);
     box-sizing: border-box;
 }
@@ -81,18 +81,77 @@ nav, footer {
     border-width: 1px;
     
 }
+
+nav, footer {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+#nav-motif-container {
+    display: none;
+}
+
+#nav-motif-small {
+    position: absolute;
+    top: -30mm;
+    right: -10mm;
+    width: 64mm;
+    z-index: -5;
+}
+
+#nav-motif {
+    position: absolute;
+    top: -34mm;
+    right: -17mm;
+    width: 64mm;
+}
+
+#footer-motif {
+    position: absolute;
+    top: -29mm;
+    right: -5mm;
+    width: 64mm;
+    z-index: -5;
+}
+
 @media all and (min-width: 240mm) {
     .no-padding-content, .no-bkg-standard-content, .standard-content, main, footer {
         width: 200mm;
         border-style: none solid solid solid;
     }
-    nav {
+    #nav-motif-container {
+        position: relative;
+        overflow: visible;
+        width: 200mm;
+        display: block;
+        margin: auto;
+        box-sizing: border-box;
         margin-top: 10mm;
+        z-index: -5;
+    }
+    nav {
         width: 200mm;
         border-style: solid solid solid solid;
+        overflow: visible;
+        background-color: var(--std-color-bg-a);
+    }
+    main {
+        background-color: var(--std-color-bg-a);
     }
     footer {
         margin-bottom: 10mm;
+        overflow: visible;
+        background-color: var(--std-color-bg-a);
+    }
+    #nav-motif-small {
+        display: none;
+    }
+    #footer-motif {
+        top: unset;
+        bottom: -36mm;
+        left: -16mm;
     }
 }
 
@@ -118,7 +177,6 @@ nav, footer {
 .pixelart {
     image-rendering: pixelated;
 }
-
 
 main > h1:first-child, main > h2:first-child, main > h3:first-child, div > h1:first-child, div > h2:first-child, div > h3:first-child {
     margin-top: -0.1em;
@@ -177,11 +235,6 @@ li::before {
     height: 100px;
 }
 
-nav, footer {
-    color: var(--std-color-a);
-    background-color: var(--std-color-bg-a);
-}
-
 a {
     cursor: pointer;
 }
@@ -227,10 +280,6 @@ a:focus {
     text-decoration: none;
 }
 
-nav {
-    overflow: hidden;
-}
-
 .inline-text-list {
     vertical-align: middle;
 }
@@ -238,4 +287,5 @@ nav {
 .inline-text-list > * {
     margin-right: 1em;
 }
+
 
