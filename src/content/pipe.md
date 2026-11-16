@@ -10,4 +10,4 @@ The latest version can resolve details down to about 2 micron (limited by optica
 
 Above is an image of Saccharomyces cerevisiae, or brewer's yeast, taken with the PIPE. No filters have been applied, and each cell is about 7 micron in diameter. 
 
-PIPE is open hardware under the CERN OHL-S licence, and you can download the plans to build your own at [https://github.com/habaldwin01/pipe](https://github.com/hannahxl32/pipe).
+PIPE is open hardware under the CERN OHL-S licence, and you can download the plans to build your own at [https://github.com/hannahxl32/pipe](https://github.com/hannahxl32/pipe).
