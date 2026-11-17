@@ -1,3 +1,6 @@
+# Version file, generated during container build
+/src/templates/version_string.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
